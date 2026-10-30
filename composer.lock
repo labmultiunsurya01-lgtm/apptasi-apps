@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d4406a59f8f0d3839d0e23b10bf19f12",
+    "content-hash": "d0881f57c1f733560614c50937894aa5",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -5604,12 +5604,12 @@
             "version": "v5.5.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/vlucas/phpdotenv.git",
+                "url": "https://github.com/phpdotenv/phpdotenv.git",
                 "reference": "1a7ea2afc49c3ee6d87061f5a233e3a035d0eae7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/1a7ea2afc49c3ee6d87061f5a233e3a035d0eae7",
+                "url": "https://api.github.com/repos/phpdotenv/phpdotenv/zipball/1a7ea2afc49c3ee6d87061f5a233e3a035d0eae7",
                 "reference": "1a7ea2afc49c3ee6d87061f5a233e3a035d0eae7",
                 "shasum": ""
             },
@@ -8305,12 +8305,12 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.1"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "platform-dev": {},
+    "plugin-api-version": "2.9.0"
 }
