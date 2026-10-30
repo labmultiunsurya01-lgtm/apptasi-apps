@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "setup": "integrated",
+  "languages": [
+    "PHP"
+  ],
+  "stacks": [
+    "Composer"
+  ],
+  "markers": [
+    "composer.json"
+  ],
+  "createdAt": "2026-08-20T06:26:35.637Z",
+  "tool": "xgrok"
+}
