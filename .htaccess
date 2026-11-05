@@ -1,10 +1,13 @@
 <IfModule mod_rewrite.c>
-    RewriteEngine On
-    # Jangan rewrite bila sudah berada di folder public
-    RewriteCond %{REQUEST_URI} !^/public/
-    # Jika file/folder fisik ada, lewati rewrite
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    # Arahkan semua request ke dalam folder public
-    RewriteRule ^(.*)$ public/$1 [L]
+RewriteEngine On
+RewriteBase /
+
+# External redirect: strip any /public/ segment from the URL
+RewriteCond %{REQUEST_URI} ^/public/(.*)$
+RewriteRule ^public/(.*)$ /$1 [R=301,L,NC]
+
+# Internal rewrite: serve the application from the public/ folder
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ public/$1 [L]
 </IfModule>
