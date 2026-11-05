@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Jangan rewrite bila sudah berada di folder public
+    RewriteCond %{REQUEST_URI} !^/public/
+    # Jika file/folder fisik ada, lewati rewrite
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    # Arahkan semua request ke dalam folder public
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
