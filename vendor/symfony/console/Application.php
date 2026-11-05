@@ -52,6 +52,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\SignalRegistry\SignalRegistry;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\ErrorHandler\ErrorHandler;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface as ComponentEventDispatcherInterface;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 use Symfony\Contracts\Service\ResetInterface;
 
@@ -240,7 +241,7 @@ class Application implements ResetInterface
         }
 
         $name = $this->getCommandName($input);
-        if (true === $input->hasParameterOption(['--help', '-h'], true)) {
+        if ($input->hasParameterOption(['--help', '-h'], true)) {
             if (!$name) {
                 $name = 'help';
                 $input = new ArrayInput(['command_name' => $this->defaultCommand]);
@@ -400,6 +401,15 @@ class Application implements ResetInterface
 
         if (CompletionInput::TYPE_OPTION_NAME === $input->getCompletionType()) {
             $suggestions->suggestOptions($this->getDefinition()->getOptions());
+
+            return;
+        }
+
+        if (
+            CompletionInput::TYPE_OPTION_VALUE === $input->getCompletionType()
+            && ($definition = $this->getDefinition())->hasOption($input->getCompletionName())
+        ) {
+            $definition->getOption($input->getCompletionName())->complete($input, $suggestions);
 
             return;
         }
@@ -723,15 +733,14 @@ class Application implements ResetInterface
             $message = \sprintf('Command "%s" is not defined.', $name);
 
             if ($alternatives = $this->findAlternatives($name, $allCommands)) {
-                // remove hidden commands
-                $alternatives = array_filter($alternatives, fn ($name) => !$this->get($name)->isHidden());
+                $wantHelps = $this->wantHelps;
+                $this->wantHelps = false;
 
-                if (1 == \count($alternatives)) {
-                    $message .= "\n\nDid you mean this?\n    ";
-                } else {
-                    $message .= "\n\nDid you mean one of these?\n    ";
+                // remove hidden commands
+                if ($alternatives = array_filter($alternatives, fn ($name) => !$this->get($name)->isHidden())) {
+                    $message .= \sprintf("\n\nDid you mean %s?\n    %s", 1 === \count($alternatives) ? 'this' : 'one of these', implode("\n    ", $alternatives));
                 }
-                $message .= implode("\n    ", $alternatives);
+                $this->wantHelps = $wantHelps;
             }
 
             throw new CommandNotFoundException($message, array_values($alternatives));
@@ -753,6 +762,21 @@ class Application implements ResetInterface
             }));
         }
 
+        // check whether all commands left are aliases to the same one
+        if (\count($commands) > 1) {
+            $uniqueCommands = array_unique(array_map(function ($nameOrAlias) use (&$commandList) {
+                if (!$commandList[$nameOrAlias] instanceof Command) {
+                    $commandList[$nameOrAlias] = $this->commandLoader->get($nameOrAlias);
+                }
+
+                return $commandList[$nameOrAlias]->getName();
+            }, $commands));
+
+            if (1 === \count($uniqueCommands)) {
+                $commands = [reset($uniqueCommands)];
+            }
+        }
+
         if (\count($commands) > 1) {
             $usableWidth = $this->terminal->getWidth() - 10;
             $abbrevs = array_values($commands);
@@ -760,7 +784,7 @@ class Application implements ResetInterface
             foreach ($abbrevs as $abbrev) {
                 $maxLen = max(Helper::width($abbrev), $maxLen);
             }
-            $abbrevs = array_map(function ($cmd) use ($commandList, $usableWidth, $maxLen, &$commands) {
+            $abbrevs = array_map(static function ($cmd) use ($commandList, $usableWidth, $maxLen, &$commands) {
                 if ($commandList[$cmd]->isHidden()) {
                     unset($commands[array_search($cmd, $commands)]);
 
@@ -779,9 +803,9 @@ class Application implements ResetInterface
             }
         }
 
-        $command = $this->get(reset($commands));
+        $command = $commands ? $this->get(reset($commands)) : null;
 
-        if ($command->isHidden()) {
+        if (!$command || $command->isHidden()) {
             throw new CommandNotFoundException(\sprintf('The command "%s" does not exist.', $name));
         }
 
@@ -875,7 +899,7 @@ class Application implements ResetInterface
             }
 
             if (str_contains($message, "@anonymous\0")) {
-                $message = preg_replace_callback('/[a-zA-Z_\x7f-\xff][\\\\a-zA-Z0-9_\x7f-\xff]*+@anonymous\x00.*?\.php(?:0x?|:[0-9]++\$)?[0-9a-fA-F]++/', fn ($m) => class_exists($m[0], false) ? (get_parent_class($m[0]) ?: key(class_implements($m[0])) ?: 'class').'@anonymous' : $m[0], $message);
+                $message = preg_replace_callback('/[a-zA-Z_\x7f-\xff][\\\\a-zA-Z0-9_\x7f-\xff]*+@anonymous\x00.*?\.php(?:0x?|:[0-9]++\$)?[0-9a-fA-F]++/', static fn ($m) => class_exists($m[0], false) ? (get_parent_class($m[0]) ?: key(class_implements($m[0])) ?: 'class').'@anonymous' : $m[0], $message);
             }
 
             $width = $this->terminal->getWidth() ? $this->terminal->getWidth() - 1 : \PHP_INT_MAX;
@@ -1012,24 +1036,29 @@ class Application implements ResetInterface
             }
         }
 
+        $registeredSignals = false;
         $commandSignals = $command instanceof SignalableCommandInterface ? $command->getSubscribedSignals() : [];
         if ($commandSignals || $this->dispatcher && $this->signalsToDispatchEvent) {
             if (!$this->signalRegistry) {
                 throw new RuntimeException('Unable to subscribe to signal events. Make sure that the "pcntl" extension is installed and that "pcntl_*" functions are not disabled by your php.ini\'s "disable_functions" directive.');
             }
 
-            if (Terminal::hasSttyAvailable()) {
-                $sttyMode = shell_exec('stty -g');
-
-                foreach ([\SIGINT, \SIGTERM] as $signal) {
-                    $this->signalRegistry->register($signal, static fn () => shell_exec('stty '.$sttyMode));
-                }
-            }
+            $registeredSignals = true;
+            $this->getSignalRegistry()->pushCurrentHandlers();
 
             if ($this->dispatcher) {
+                // Build the lazy listeners before a signal handler needs them: a signal can interrupt the autoloading of a class they use, which cannot be loaded again from the handler
+                if ($this->signalsToDispatchEvent && $this->dispatcher instanceof ComponentEventDispatcherInterface) {
+                    foreach ([ConsoleEvents::SIGNAL, ConsoleEvents::TERMINATE] as $eventName) {
+                        $this->dispatcher->getListeners($eventName);
+                    }
+                }
+
                 // We register application signals, so that we can dispatch the event
                 foreach ($this->signalsToDispatchEvent as $signal) {
-                    $event = new ConsoleSignalEvent($command, $input, $output, $signal);
+                    // When this application runs inside another application that handles the signal, the outer application decides if the process exits
+                    $previousHandler = pcntl_signal_get_handler($signal);
+                    $event = new ConsoleSignalEvent($command, $input, $output, $signal, \is_array($previousHandler) && $previousHandler[0] instanceof SignalRegistry ? false : 0);
 
                     $this->signalRegistry->register($signal, function ($signal) use ($event, $command, $commandSignals) {
                         $this->dispatcher->dispatch($event, ConsoleEvents::SIGNAL);
@@ -1059,7 +1088,7 @@ class Application implements ResetInterface
             }
 
             foreach ($commandSignals as $signal) {
-                $this->signalRegistry->register($signal, function (int $signal) use ($command): void {
+                $this->signalRegistry->register($signal, static function (int $signal) use ($command): void {
                     $exitCode = $command->handleSignal($signal);
                     // BC layer for Symfony <= 5
                     if (null === $exitCode) {
@@ -1075,7 +1104,13 @@ class Application implements ResetInterface
         }
 
         if (null === $this->dispatcher) {
-            return $command->run($input, $output);
+            try {
+                return $command->run($input, $output);
+            } finally {
+                if ($registeredSignals) {
+                    $this->getSignalRegistry()->popPreviousHandlers();
+                }
+            }
         }
 
         // bind before the console.command event, so the listeners have access to input options/arguments
@@ -1104,6 +1139,10 @@ class Application implements ResetInterface
 
             if (0 === $exitCode = $event->getExitCode()) {
                 $e = null;
+            }
+        } finally {
+            if ($registeredSignals) {
+                $this->getSignalRegistry()->popPreviousHandlers();
             }
         }
 
@@ -1226,7 +1265,7 @@ class Application implements ResetInterface
             }
         }
 
-        $alternatives = array_filter($alternatives, fn ($lev) => $lev < 2 * $threshold);
+        $alternatives = array_filter($alternatives, static fn ($lev) => $lev < 2 * $threshold);
         ksort($alternatives, \SORT_NATURAL | \SORT_FLAG_CASE);
 
         return array_keys($alternatives);
@@ -1290,9 +1329,7 @@ class Application implements ResetInterface
 
         $lines[] = \count($lines) ? str_pad($line, $width) : $line;
 
-        mb_convert_variables($encoding, 'utf8', $lines);
-
-        return $lines;
+        return mb_convert_encoding($lines, $encoding, 'utf8');
     }
 
     /**
@@ -1307,7 +1344,7 @@ class Application implements ResetInterface
         $namespaces = [];
 
         foreach ($parts as $part) {
-            if (\count($namespaces)) {
+            if ($namespaces) {
                 $namespaces[] = end($namespaces).':'.$part;
             } else {
                 $namespaces[] = $part;
