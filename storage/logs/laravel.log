@@ -6379,3 +6379,189 @@
 #6 C:/xampp/htdocs/apptasi/storage/framework/lsp-a7ec74802fb089f4.php(5): Illuminate/Foundation/Console/Kernel->bootstrap()
 #7 {main}
 "} 
+[2026-11-05 08:46:28] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate/Log/LogManager->resolve(NULL, NULL)
+#1 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate/Log/LogManager->get(NULL)
+#2 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(681): Illuminate/Log/LogManager->driver()
+#3 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate/Log/LogManager->error('Class \"Laravel//...', Array)
+#4 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate/Foundation/Exceptions/Handler->reportThrowable(Object(Error))
+#5 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(536): Illuminate/Foundation/Exceptions/Handler->report(Object(Error))
+#6 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate/Foundation/Console/Kernel->reportException(Object(Error))
+#7 C:/xampp/htdocs/apptasi/artisan(35): Illuminate/Foundation/Console/Kernel->handle(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#8 {main}
+"} 
+[2026-11-05 08:46:28] laravel.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:206)
+[stacktrace]
+#0 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(142): Illuminate/Foundation/ProviderRepository->createProvider('Laravel//Breeze//...')
+#1 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(61): Illuminate/Foundation/ProviderRepository->compileManifest(Array)
+#2 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(794): Illuminate/Foundation/ProviderRepository->load(Array)
+#3 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate/Foundation/Application->registerConfiguredProviders()
+#4 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(286): Illuminate/Foundation/Bootstrap/RegisterProviders->bootstrap(Object(Illuminate/Foundation/Application))
+#5 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(460): Illuminate/Foundation/Application->bootstrapWith(Array)
+#6 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate/Foundation/Console/Kernel->bootstrap()
+#7 C:/xampp/htdocs/apptasi/artisan(35): Illuminate/Foundation/Console/Kernel->handle(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#8 {main}
+"} 
+[2026-11-05 08:46:37] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate/Log/LogManager->resolve(NULL, NULL)
+#1 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate/Log/LogManager->get(NULL)
+#2 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(681): Illuminate/Log/LogManager->driver()
+#3 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate/Log/LogManager->error('Class \"Laravel//...', Array)
+#4 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate/Foundation/Exceptions/Handler->reportThrowable(Object(Error))
+#5 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(536): Illuminate/Foundation/Exceptions/Handler->report(Object(Error))
+#6 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate/Foundation/Console/Kernel->reportException(Object(Error))
+#7 C:/xampp/htdocs/apptasi/artisan(35): Illuminate/Foundation/Console/Kernel->handle(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#8 {main}
+"} 
+[2026-11-05 08:46:37] laravel.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:206)
+[stacktrace]
+#0 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(142): Illuminate/Foundation/ProviderRepository->createProvider('Laravel//Breeze//...')
+#1 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(61): Illuminate/Foundation/ProviderRepository->compileManifest(Array)
+#2 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(794): Illuminate/Foundation/ProviderRepository->load(Array)
+#3 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate/Foundation/Application->registerConfiguredProviders()
+#4 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(286): Illuminate/Foundation/Bootstrap/RegisterProviders->bootstrap(Object(Illuminate/Foundation/Application))
+#5 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(460): Illuminate/Foundation/Application->bootstrapWith(Array)
+#6 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate/Foundation/Console/Kernel->bootstrap()
+#7 C:/xampp/htdocs/apptasi/artisan(35): Illuminate/Foundation/Console/Kernel->handle(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#8 {main}
+"} 
+[2026-11-07 11:37:54] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate/Log/LogManager->resolve(NULL, NULL)
+#1 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate/Log/LogManager->get(NULL)
+#2 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(681): Illuminate/Log/LogManager->driver()
+#3 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate/Log/LogManager->error('Class \"Laravel//...', Array)
+#4 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate/Foundation/Exceptions/Handler->reportThrowable(Object(Error))
+#5 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(183): Illuminate/Foundation/Exceptions/Handler->report(Object(Error))
+#6 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(255): Illuminate/Foundation/Bootstrap/HandleExceptions->handleException(Object(Error))
+#7 [internal function]: Illuminate/Foundation/Bootstrap/HandleExceptions->Illuminate/Foundation/Bootstrap/{closure}(Object(Error))
+#8 {main}
+"} 
+[2026-11-07 11:37:54] laravel.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:206)
+[stacktrace]
+#0 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(142): Illuminate/Foundation/ProviderRepository->createProvider('Laravel//Breeze//...')
+#1 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(61): Illuminate/Foundation/ProviderRepository->compileManifest(Array)
+#2 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(794): Illuminate/Foundation/ProviderRepository->load(Array)
+#3 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate/Foundation/Application->registerConfiguredProviders()
+#4 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(286): Illuminate/Foundation/Bootstrap/RegisterProviders->bootstrap(Object(Illuminate/Foundation/Application))
+#5 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(460): Illuminate/Foundation/Application->bootstrapWith(Array)
+#6 C:/xampp/htdocs/apptasi/storage/framework/lsp-47add83748afced6.php(5): Illuminate/Foundation/Console/Kernel->bootstrap()
+#7 {main}
+"} 
+[2026-11-07 11:37:55] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate/Log/LogManager->resolve(NULL, NULL)
+#1 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate/Log/LogManager->get(NULL)
+#2 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(681): Illuminate/Log/LogManager->driver()
+#3 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate/Log/LogManager->error('Class \"Laravel//...', Array)
+#4 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate/Foundation/Exceptions/Handler->reportThrowable(Object(Error))
+#5 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(183): Illuminate/Foundation/Exceptions/Handler->report(Object(Error))
+#6 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(255): Illuminate/Foundation/Bootstrap/HandleExceptions->handleException(Object(Error))
+#7 [internal function]: Illuminate/Foundation/Bootstrap/HandleExceptions->Illuminate/Foundation/Bootstrap/{closure}(Object(Error))
+#8 {main}
+"} 
+[2026-11-07 11:37:55] laravel.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:206)
+[stacktrace]
+#0 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(142): Illuminate/Foundation/ProviderRepository->createProvider('Laravel//Breeze//...')
+#1 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(61): Illuminate/Foundation/ProviderRepository->compileManifest(Array)
+#2 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(794): Illuminate/Foundation/ProviderRepository->load(Array)
+#3 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate/Foundation/Application->registerConfiguredProviders()
+#4 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(286): Illuminate/Foundation/Bootstrap/RegisterProviders->bootstrap(Object(Illuminate/Foundation/Application))
+#5 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(460): Illuminate/Foundation/Application->bootstrapWith(Array)
+#6 C:/xampp/htdocs/apptasi/storage/framework/lsp-7d07c31b0b7e93a9.php(5): Illuminate/Foundation/Console/Kernel->bootstrap()
+#7 {main}
+"} 
+[2026-11-07 11:37:56] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate/Log/LogManager->resolve(NULL, NULL)
+#1 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate/Log/LogManager->get(NULL)
+#2 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(681): Illuminate/Log/LogManager->driver()
+#3 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate/Log/LogManager->error('Class \"Laravel//...', Array)
+#4 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate/Foundation/Exceptions/Handler->reportThrowable(Object(Error))
+#5 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(183): Illuminate/Foundation/Exceptions/Handler->report(Object(Error))
+#6 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(255): Illuminate/Foundation/Bootstrap/HandleExceptions->handleException(Object(Error))
+#7 [internal function]: Illuminate/Foundation/Bootstrap/HandleExceptions->Illuminate/Foundation/Bootstrap/{closure}(Object(Error))
+#8 {main}
+"} 
+[2026-11-07 11:37:56] laravel.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:206)
+[stacktrace]
+#0 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(142): Illuminate/Foundation/ProviderRepository->createProvider('Laravel//Breeze//...')
+#1 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(61): Illuminate/Foundation/ProviderRepository->compileManifest(Array)
+#2 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(794): Illuminate/Foundation/ProviderRepository->load(Array)
+#3 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate/Foundation/Application->registerConfiguredProviders()
+#4 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(286): Illuminate/Foundation/Bootstrap/RegisterProviders->bootstrap(Object(Illuminate/Foundation/Application))
+#5 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(460): Illuminate/Foundation/Application->bootstrapWith(Array)
+#6 C:/xampp/htdocs/apptasi/storage/framework/lsp-b38a5be2a8195690.php(5): Illuminate/Foundation/Console/Kernel->bootstrap()
+#7 {main}
+"} 
+[2026-11-07 11:37:56] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate/Log/LogManager->resolve(NULL, NULL)
+#1 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate/Log/LogManager->get(NULL)
+#2 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(681): Illuminate/Log/LogManager->driver()
+#3 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate/Log/LogManager->error('Class \"Laravel//...', Array)
+#4 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate/Foundation/Exceptions/Handler->reportThrowable(Object(Error))
+#5 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(183): Illuminate/Foundation/Exceptions/Handler->report(Object(Error))
+#6 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(255): Illuminate/Foundation/Bootstrap/HandleExceptions->handleException(Object(Error))
+#7 [internal function]: Illuminate/Foundation/Bootstrap/HandleExceptions->Illuminate/Foundation/Bootstrap/{closure}(Object(Error))
+#8 {main}
+"} 
+[2026-11-07 11:37:56] laravel.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:206)
+[stacktrace]
+#0 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(142): Illuminate/Foundation/ProviderRepository->createProvider('Laravel//Breeze//...')
+#1 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(61): Illuminate/Foundation/ProviderRepository->compileManifest(Array)
+#2 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(794): Illuminate/Foundation/ProviderRepository->load(Array)
+#3 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate/Foundation/Application->registerConfiguredProviders()
+#4 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(286): Illuminate/Foundation/Bootstrap/RegisterProviders->bootstrap(Object(Illuminate/Foundation/Application))
+#5 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(460): Illuminate/Foundation/Application->bootstrapWith(Array)
+#6 C:/xampp/htdocs/apptasi/storage/framework/lsp-66adfb75dac0cfd1.php(5): Illuminate/Foundation/Console/Kernel->bootstrap()
+#7 {main}
+"} 
+[2026-11-07 11:37:57] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate/Log/LogManager->resolve(NULL, NULL)
+#1 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate/Log/LogManager->get(NULL)
+#2 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(681): Illuminate/Log/LogManager->driver()
+#3 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate/Log/LogManager->error('Class \"Laravel//...', Array)
+#4 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate/Foundation/Exceptions/Handler->reportThrowable(Object(Error))
+#5 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(183): Illuminate/Foundation/Exceptions/Handler->report(Object(Error))
+#6 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(255): Illuminate/Foundation/Bootstrap/HandleExceptions->handleException(Object(Error))
+#7 [internal function]: Illuminate/Foundation/Bootstrap/HandleExceptions->Illuminate/Foundation/Bootstrap/{closure}(Object(Error))
+#8 {main}
+"} 
+[2026-11-07 11:37:57] laravel.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:206)
+[stacktrace]
+#0 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(142): Illuminate/Foundation/ProviderRepository->createProvider('Laravel//Breeze//...')
+#1 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(61): Illuminate/Foundation/ProviderRepository->compileManifest(Array)
+#2 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(794): Illuminate/Foundation/ProviderRepository->load(Array)
+#3 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate/Foundation/Application->registerConfiguredProviders()
+#4 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(286): Illuminate/Foundation/Bootstrap/RegisterProviders->bootstrap(Object(Illuminate/Foundation/Application))
+#5 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(460): Illuminate/Foundation/Application->bootstrapWith(Array)
+#6 C:/xampp/htdocs/apptasi/storage/framework/lsp-8a8169c7c6d540de.php(5): Illuminate/Foundation/Console/Kernel->bootstrap()
+#7 {main}
+"} 
+[2026-11-07 11:37:57] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate/Log/LogManager->resolve(NULL, NULL)
+#1 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate/Log/LogManager->get(NULL)
+#2 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(681): Illuminate/Log/LogManager->driver()
+#3 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate/Log/LogManager->error('Class \"Laravel//...', Array)
+#4 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate/Foundation/Exceptions/Handler->reportThrowable(Object(Error))
+#5 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(183): Illuminate/Foundation/Exceptions/Handler->report(Object(Error))
+#6 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(255): Illuminate/Foundation/Bootstrap/HandleExceptions->handleException(Object(Error))
+#7 [internal function]: Illuminate/Foundation/Bootstrap/HandleExceptions->Illuminate/Foundation/Bootstrap/{closure}(Object(Error))
+#8 {main}
+"} 
+[2026-11-07 11:37:57] laravel.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php:206)
+[stacktrace]
+#0 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(142): Illuminate/Foundation/ProviderRepository->createProvider('Laravel//Breeze//...')
+#1 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(61): Illuminate/Foundation/ProviderRepository->compileManifest(Array)
+#2 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(794): Illuminate/Foundation/ProviderRepository->load(Array)
+#3 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate/Foundation/Application->registerConfiguredProviders()
+#4 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(286): Illuminate/Foundation/Bootstrap/RegisterProviders->bootstrap(Object(Illuminate/Foundation/Application))
+#5 C:/xampp/htdocs/apptasi/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(460): Illuminate/Foundation/Application->bootstrapWith(Array)
+#6 C:/xampp/htdocs/apptasi/storage/framework/lsp-d2831e5c591168f0.php(5): Illuminate/Foundation/Console/Kernel->bootstrap()
+#7 {main}
+"} 
